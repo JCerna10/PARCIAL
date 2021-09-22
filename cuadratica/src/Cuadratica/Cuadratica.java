@@ -6,7 +6,6 @@
 package Cuadratica;
 
 import javax.swing.JOptionPane;
-import java.util.Scanner;
 
 /**
  *
@@ -19,7 +18,7 @@ public class Cuadratica {
     int c = 0;
 
     public static void main(String[] args) {
-        new Cuadratica();
+        Cuadratica cuadratica = new Cuadratica();
     }
 
     public Cuadratica() {
