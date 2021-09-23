@@ -53,7 +53,7 @@ public class Persona {
     }
 
     public void inicializar() {
-        
+
         Scanner teclado = new Scanner(System.in);
         System.out.print("Ingrese nombre:");
         nombre = teclado.next();
@@ -65,7 +65,8 @@ public class Persona {
 
     public void imprimir() {
         System.out.println("Nombre:" + nombre);
-        System.out.println("Apellido:" + apellido);
-        System.out.println("Caro de Empleado:" + cargodeEmpleado);
+        System.out.println("                  ");
+        //System.out.println("Apellido:" + apellido);
+        //System.out.println("Caro de Empleado:" + cargodeEmpleado);
     }
 }

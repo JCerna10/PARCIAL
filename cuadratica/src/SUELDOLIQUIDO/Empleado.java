@@ -44,55 +44,78 @@ public class Empleado {
         this.sueldo = sueldo;
     }
 
-    public void ingresarHoras() {
+    public void ingresarsueldoyhora() {
+        horas = 0;
+        sueldo = 0;
+        float horasExtras;
+        float SalarioNeto = 0;
+        double ISSS = 0.0525;
+        double AFP = 0.0688;
+        double Renta = 0.10;
+        //  int i = 0;
+        // int max = 0;
         Scanner teclado = new Scanner(System.in);
         System.out.print("Ingrese horas trabajadas:");
         horas = teclado.nextInt();
-    }
-
-    public String calcularHoras() {
-        float horasExtra;
-        String resultado = null;
+        //  while (i < horas) {
+        //  System.out.print("Ingrese horas: " + (i + 1));
+        //   horas = teclado.nextInt();
+        //   if (horas > max) {
+        //   max = horas;
         if (horas <= 160) {
-            sueldo = (float) (horas * 9.75);
-            resultado = "Tu salario es:" + sueldo;
-        } else {
-            if (horas > 160) {
-                horasExtra = (horas - 160);
-                sueldo = (float) ((horasExtra) * (11.50));
-                resultado = "Tu salario es:";
-            } else {
-                resultado = "No se puede calcular tu salario";
-            }
-        }
-        return resultado;
-    }
 
-    public void ingresarSueldo() {
-
-        sueldo = 0;
-        double ISSS = 0.0525;
-        double AFP = 0.0688;
-        double Renta = 0.1;
-        double SalarioNeto = 0;
-
-        Scanner teclado = new Scanner(System.in);
-        System.out.println("Ingresar salario");
-        sueldo = teclado.nextInt();
-
-        if (sueldo >= 500) {
-            SalarioNeto = (sueldo - (sueldo * ISSS) - (sueldo * AFP) - (sueldo * Renta));
-            ISSS = sueldo * ISSS;
-            AFP = sueldo * AFP;
-            Renta = sueldo * Renta;
-            System.out.println("SalarioNeto: " + (SalarioNeto));
+            // El sueldo que gana de las primeras 160 horas
+            horasExtras = (sueldo + (float) (9.75 * horas));
+            horas = (int) (SalarioNeto + horasExtras);
+            SalarioNeto = (float) (horas - (horas * ISSS) - (horas * AFP) - (horas * Renta));
+            ISSS = horas * ISSS;
+            AFP = horas * AFP;
+            Renta = horas * Renta;
+            System.out.println("tu salario es: " + (horas));
             System.out.println("La deduccion de AFP es: " + (ISSS));
             System.out.println("La deduccion de ISSS es: " + (AFP));
             System.out.println("La deduccion de renta es: " + (Renta));
-            System.out.println("La deduccion de renta es: " + (horas));
+            System.out.println("Salario Liquido a pagar: " + (SalarioNeto));
         } else {
-            System.out.println("El Salario no tiene retenciones");
+            if (horas > 160) {
+                // El sueldo que gana si hace mas de 160 horas
+                horasExtras = (horas + (float) (11.50 * horas));
+                horas = (int) (SalarioNeto + horasExtras);
+                SalarioNeto = (float) (horas - (horas * ISSS) - (horas * AFP) - (horas * Renta));
+                ISSS = horas * ISSS;
+                AFP = horas * AFP;
+                Renta = horas * Renta;
+                System.out.println("tu salario es: " + (horas));
+                System.out.println("La deduccion de AFP es: " + (ISSS));
+                System.out.println("La deduccion de ISSS es: " + (AFP));
+                System.out.println("La deduccion de renta es: " + (Renta));
+                System.out.println("SalarioNeto: " + (SalarioNeto));
+              
+            }
         }
-
+      
     }
 }
+
+
+/* public String calcularHoras() {
+        horas = 0;
+        float HorasTrabajadas;
+        // float sueldoExtra;
+        // float horasExtra;
+        Scanner teclado = new Scanner(System.in);
+        System.out.print("INGRESE HORAS:");
+        horas = teclado.nextInt();
+        if (horas <= 160) {
+            HorasTrabajadas = (float) (horas * 9.75);
+            System.out.println("Tus salario es: " + HorasTrabajadas);
+        }
+        if (horas > 160) {
+            HorasTrabajadas = (float) (horas * 11.50);
+            // horas = (float) (horasExtra * 11.50);
+            // horasExtra = horas += sueldoExtra;
+            System.out.println("Tus salario es: " + HorasTrabajadas);
+        }
+        return null;
+ }
+}*/
