@@ -144,21 +144,18 @@ public class CURSOS {
         double actividad3 = nota3 * 0.20;
         double actividad4 = nota4 * 0.30;
         double actividad5 = nota5 * 0.25;
-        
+
         double notafinal = (actividad1 + actividad2 + actividad3 + actividad4 + actividad5);
         if (notafinal >= 7) {
-            
+
             System.out.println("EL ALUMNO APROBO LA MATERIA CON LA NOTA DE:" + notafinal);
-            
-        } else {
-            if (notafinal >= 6.50 && notafinal <= 6.99) {
-                System.out.println("EL ALUMNO POSIBILIDAD DE REALIZAR EL EXAMEN DE SUFICIENCIA:" + notafinal);
-            } else {
-                if (notafinal <= 5) {
-                    System.out.println("EL ALUMNO REPROBO LA MATERIA CON LA NOTA DE:" + notafinal);
-                }
-            }
+
+        } else if (notafinal >= 6.50 && notafinal <= 6.99) {
+            System.out.println("EL ALUMNO POSIBILIDAD DE REALIZAR EL EXAMEN DE SUFICIENCIA:" + notafinal);
+        } else if (notafinal <= 6.49) {
+            System.out.println("EL ALUMNO REPROBO LA MATERIA CON LA NOTA DE:" + notafinal);
         }
         return null;
     }
+
 }
