@@ -19,6 +19,7 @@ public class CURSOS {
     private int grado;
     private double[] notas; // vector    
     private double nota1, nota2, nota3, nota4, nota5;
+    private int estado;
 
     public CURSOS() {
     }
@@ -107,6 +108,15 @@ public class CURSOS {
         this.nota5 = nota5;
     }
 
+    public int getEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+   
+
     public void ingresarDatos() {
         Scanner teclado = new Scanner(System.in);
         System.out.print("Ingrese el Nombre:");
@@ -147,18 +157,15 @@ public class CURSOS {
         
         double notafinal = (actividad1 + actividad2 + actividad3 + actividad4 + actividad5);
         if (notafinal >= 7) {
-            
+
             System.out.println("EL ALUMNO APROBO LA MATERIA CON LA NOTA DE:" + notafinal);
-            
-        } else {
-            if (notafinal >= 6.50 && notafinal <= 6.99) {
-                System.out.println("EL ALUMNO POSIBILIDAD DE REALIZAR EL EXAMEN DE SUFICIENCIA:" + notafinal);
-            } else {
-                if (notafinal <= 5) {
-                    System.out.println("EL ALUMNO REPROBO LA MATERIA CON LA NOTA DE:" + notafinal);
-                }
-            }
+
+        } else if (notafinal >= 6.50 && notafinal <= 6.99) {
+            System.out.println("EL ALUMNO POSIBILIDAD DE REALIZAR EL EXAMEN DE SUFICIENCIA:" + notafinal);
+        } else if (notafinal <= 6.49) {
+            System.out.println("EL ALUMNO REPROBO LA MATERIA CON LA NOTA DE:" + notafinal);
         }
+        
         return null;
     }
 }

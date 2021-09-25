@@ -19,6 +19,10 @@ public class Empleado {
 
     private int horas;
     private float sueldo;
+    double mayor = 0;
+
+    
+    
 
     public Empleado() {
     }
@@ -52,6 +56,8 @@ public class Empleado {
         double ISSS = 0.0525;
         double AFP = 0.0688;
         double Renta = 0.10;
+        String nombre = null;
+        int limite = 1;
         //  int i = 0;
         // int max = 0;
         Scanner teclado = new Scanner(System.in);
@@ -63,39 +69,32 @@ public class Empleado {
         //   if (horas > max) {
         //   max = horas;
         if (horas <= 160) {
-
-            // El sueldo que gana de las primeras 160 horas
-            horasExtras = (sueldo + (float) (9.75 * horas));
-            horas = (int) (SalarioNeto + horasExtras);
-            SalarioNeto = (float) (horas - (horas * ISSS) - (horas * AFP) - (horas * Renta));
-            ISSS = horas * ISSS;
-            AFP = horas * AFP;
-            Renta = horas * Renta;
-            System.out.println("tu salario es: " + (horas));
-            System.out.println("La deduccion de AFP es: " + (ISSS));
-            System.out.println("La deduccion de ISSS es: " + (AFP));
-            System.out.println("La deduccion de renta es: " + (Renta));
-            System.out.println("Salario Liquido a pagar: " + (SalarioNeto));
+            sueldo = (float) (horas * 9.75);
         } else {
-            if (horas > 160) {
-                // El sueldo que gana si hace mas de 160 horas
-                horasExtras = (horas + (float) (11.50 * horas));
-                horas = (int) (SalarioNeto + horasExtras);
-                SalarioNeto = (float) (horas - (horas * ISSS) - (horas * AFP) - (horas * Renta));
-                ISSS = horas * ISSS;
-                AFP = horas * AFP;
-                Renta = horas * Renta;
-                System.out.println("tu salario es: " + (horas));
-                System.out.println("La deduccion de AFP es: " + (ISSS));
-                System.out.println("La deduccion de ISSS es: " + (AFP));
-                System.out.println("La deduccion de renta es: " + (Renta));
-                System.out.println("SalarioNeto: " + (SalarioNeto));
-              
-            }
+            horasExtras = horas - 160;
+            sueldo = (float) ((horasExtras * 11.50) + (160 * 9.75));
         }
-      
+
+        ISSS = horas * ISSS;
+        AFP = horas * AFP;
+        Renta = horas * Renta;
+        SalarioNeto = (float) (sueldo - ISSS - AFP - Renta);
+        System.out.println("tu salario es: " + (sueldo));
+        System.out.println("La deduccion de AFP es: " + (ISSS));
+        System.out.println("La deduccion de ISSS es: " + (AFP));
+        System.out.println("La deduccion de renta es: " + (Renta));
+        System.out.println("Salario Liquido a pagar: " + (SalarioNeto));
+        
+        
+            }
     }
-}
+            
+            
+
+        
+
+    
+    
 
 
 /* public String calcularHoras() {
