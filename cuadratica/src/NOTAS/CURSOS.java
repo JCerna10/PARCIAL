@@ -126,7 +126,6 @@ public class CURSOS {
     }
 
     public String ingresarNotas() {
-
         String resultado = null;
         Scanner teclado = new Scanner(System.in);
         System.out.print("Ingrese primer nota:");
@@ -145,30 +144,62 @@ public class CURSOS {
         double actividad3 = nota3 * 0.20;
         double actividad4 = nota4 * 0.30;
         double actividad5 = nota5 * 0.25;
-        double suma;
+        
         double notafinal = (actividad1 + actividad2 + actividad3 + actividad4 + actividad5);
-
-        if (nota1 >= 0 && nota1 <= 10 && nota2 >= 0 && nota2 <= 10 && nota3 >= 0 && nota3 <= 10 && nota4 >= 0 && nota4 <= 10 && nota5 >= 0 && nota5 <= 10) {
+        if (notafinal >= 7) {
+            
+            System.out.println("EL ALUMNO APROBO LA MATERIA CON LA NOTA DE:" + notafinal);
+            
         } else {
-            suma = nota1 + nota2 + nota3 + nota4 + nota5;
-            System.out.println("la suma de las actividades es mayor a 50:");
-
-            {
-                if (notafinal >= 7) {
-
-                    System.out.println("EL ALUMNO APROBO LA MATERIA CON LA NOTA DE:" + notafinal);
-
-                } else {
-                    if (notafinal >= 6.50 && notafinal <= 6.99) {
-                        System.out.println("EL ALUMNO POSIBILIDAD DE REALIZAR EL EXAMEN DE SUFICIENCIA:" + notafinal);
-                    } else {
-                        if (notafinal <= 5) {
-                            System.out.println("EL ALUMNO REPROBO LA MATERIA CON LA NOTA DE:" + notafinal);
-                        }
-                    }
+            if (notafinal >= 6.50 && notafinal <= 6.99) {
+                System.out.println("EL ALUMNO POSIBILIDAD DE REALIZAR EL EXAMEN DE SUFICIENCIA:" + notafinal);
+            } else {
+                if (notafinal <= 5) {
+                    System.out.println("EL ALUMNO REPROBO LA MATERIA CON LA NOTA DE:" + notafinal);
                 }
             }
         }
         return null;
     }
 }
+
+
+/*do {
+
+                if (totalActividad > 50) {
+                    System.out.println("La sumatoria de las 5 actividades no puede dar mayor a 50");
+                    concedido = false;
+                } else {
+
+                    concedido = true;
+                }
+
+            } while (concedido == false);
+
+            m.setNotaFinal(totalActividad);
+
+            if (totalActividad >= 7) {
+                Estado[contadoraprobado] = "Estas aprobado";
+
+                if (Grado == 10) {
+                    Estado2[contadoraprobado] = "Felicidades, estas graduado";
+                } else {
+                    Estado2[contadoraprobado] = "Aun no estas graduado, disfruta la escuela";
+                }
+
+                contadoraprobado++;
+            }
+            if (totalActividad <= 6.49) {
+                Estado[contadoraprobado] = "Estas reprobado";
+                Estado2[contadoraprobado] = "Lo sentimos, no pasastes de grado";
+                contadoraprobado++;
+            }
+
+            //6.50<x<6.99
+            if (6.50 < totalActividad && totalActividad < 6.99) {
+                Estado[contadoraprobado] = "Tienes la posibilidad de realizar un examen de suficiencia para aprobar";
+                Estado2[contadoraprobado] = "Pasastes la materia pero tienes la posibilidad de repetir el examen";
+                contadoraprobado++;
+            }
+
+        } while (limite <= 5); */

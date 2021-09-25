@@ -16,7 +16,7 @@ public class menu {
            ///menu
        CURSOS estudiante = new CURSOS();
        String resultado;
-     //  estudiante.ingresarDatos();
+      estudiante.ingresarDatos();
        estudiante.ingresarNotas();
        estudiante.imprimir();
        
