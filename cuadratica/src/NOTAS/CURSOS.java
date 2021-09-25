@@ -154,7 +154,7 @@ public class CURSOS {
         double actividad3 = nota3 * 0.20;
         double actividad4 = nota4 * 0.30;
         double actividad5 = nota5 * 0.25;
-        
+
         double notafinal = (actividad1 + actividad2 + actividad3 + actividad4 + actividad5);
         if (notafinal >= 7) {
 
@@ -168,4 +168,5 @@ public class CURSOS {
         
         return null;
     }
+
 }
